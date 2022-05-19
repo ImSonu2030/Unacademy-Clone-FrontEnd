@@ -10,7 +10,7 @@ $primry-color2:#2a2b2d; /*Color for header, hover & cards*/
 
 @mixin small_text {
     font-size: small;
-    color: #f4f4f255;
+    color: #f4f4f2ad;
 }
 
 @mixin center_content($direction) {
@@ -102,7 +102,7 @@ header .right-section{
 .right-section div{
     position: relative;
     @include center_content($direction:inherit);
-    @include big_text();
+    @include big_text($text_size:0.7em);
     column-gap: 8px;
 } 
 .right-section .progress{
@@ -147,12 +147,19 @@ header .right-section{
     border-radius: 7px;
     @include light_box_shadow($bg_color:#2a2b2d);
 }
-.left-nav .left-menu li:not(.m-d){
+.left-nav .left-menu li:not(.home-plan){
     margin-bottom: 15px;
-    padding: 5px 10px 5px 0;
+    padding:5px 7px 5px 0px;
+    width: 200px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.4s;
 }
 .m-d{
     margin-bottom: 35px; 
+}
+.left-nav .left-menu li:hover:not(.home-plan){
+    background-color: $primry-color2;
 }
 /*=======================Middle Planner Style=============================*/
 .plan-container{
@@ -168,7 +175,7 @@ header .right-section{
     position: fixed;
     top:70px;
     width: 34%;
-    @include big_text($text_size:1.1em);
+    @include big_text($text_size:1em);
     padding: 55px 5px 15px 5px;
     @include light_box_shadow($bg_color:#242526);
     box-shadow: none;
@@ -209,6 +216,9 @@ header .right-section{
     display: flex;
     align-items: center;
     column-gap: 15px;
+}
+.c_1 span:first-child, .c_2 p {
+    @include small_text();
 }
 /*======================Right ScoreBoard Style======================*/
 .container .right-container{
@@ -279,16 +289,7 @@ header .right-section{
 
 
 
-
-
-
-
-
-
-
-
-
-
+/*==================Responsive=================*/
 @media screen and (max-width:1300px) {
     header, .left-section, .planner, .right-section, .container{
       display: none;
